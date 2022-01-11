@@ -6,12 +6,19 @@ require("chai")
 
 contract('Tenant', (account)=>{
 
-    const tenantDeployed = await Tenant.new()
+    let tenant
 
-    const address = tenantDeployed.address
+    beforeEach(async()=>{
+        tenant = await Tenant.new()
+    })
+
+    
+
+    
 
     describe("deployment", ()=>{
         it("deployed successfully", async ()=>{
+            const address = tenantDeployed.address
             address.should.not.be.equal('', 'The contract has as address')
         })
     })
