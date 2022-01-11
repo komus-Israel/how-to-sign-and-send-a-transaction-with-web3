@@ -14,8 +14,9 @@ const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545')
 // get the Id of the connected network
 const networkId = await web3.eth.net.getId()
 
-// direct web3 to the contract address
-//const contract = await web3.eth.Contract(contra)
+// get the contract address
+const address = contractAbi.networks[networkId].address 
 
-const address = contractAbi.networks //[networkId].address
-console.log(address)
+// direct web3 to the contract using the contract abi and the contract address
+const contract =  new web3.eth.Contract(contractAbi.abi, address)
+console.log(contract)
