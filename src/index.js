@@ -1,6 +1,6 @@
-require('web3')
+import Web3 from 'web3'
 
-//const web3 = Web3(web3.)
+const web = new Web3(Web3.givenProvider)
 
 
-console.log()
+console.log(web)
