@@ -23,6 +23,7 @@ const contractAddress = contractAbi.networks[networkId].address
 
 // get the public of the transaction signer
 const PUBLIC_KEY = process.env.PUBLIC_KEY
+const PRIVATE_KEY = process.env.PRIVATE_KEY
 
 
 // direct web3 to the contract using the contract abi and the contract address
@@ -48,9 +49,12 @@ console.log("private key", createdPrivateKey)*/
 const tx = {
     from: PUBLIC_KEY,
     to: contractAddress,
+    gas:50000,
     data: contract.methods.newTenant('Temi', 300).encodeABI()
 }
 
+const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
 
+console.log(signPromise)
 
 
