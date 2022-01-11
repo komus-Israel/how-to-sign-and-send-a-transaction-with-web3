@@ -21,5 +21,12 @@ contract('Tenant', (account)=>{
             const address = tenant.address
             address.should.not.be.equal('', 'The contract has as address')
         })
+
+    describe("registering new tenant", ()=>{
+        
+        it("registers a new tenant", async()=>{
+            const registerTenant = await tenant.newTenant("Tim", 200, { from:account })
+        })
+    })
     })
 })
