@@ -53,8 +53,28 @@ const tx = {
     data: contract.methods.newTenant('Temi', 300).encodeABI()
 }
 
-const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
+const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)  // this will return a promise that resolves into an object
 
-console.log(signPromise)
+
+// the promise will return a signedTransaction with a .raw or rawTransaction object
+signPromise.then(
+    (signedTransaction)=>{
+
+        // use web3 to send the signed transaction
+        const sentTransaction = web3.eth.sendSignedTransaction(signedTransaction.rawTransaction)
+        
+        // using event emmiter
+
+        //  1. if a receipt is generated
+        sentTransaction.on(
+            "receipt", (receipt) => console.log(receipt)
+        )
+
+        //  2. an error is generated
+        sentTransaction.on(
+            "error", (err)=>console.log('insufficient gas fee')
+        )
+    }
+).catch(err => console.log('there was an error'))
 
 
