@@ -49,7 +49,7 @@ console.log("private key", createdPrivateKey)*/
 const tx = {
     from: PUBLIC_KEY,
     to: contractAddress,
-    gas:50000,
+    gas:500000,
     data: contract.methods.newTenant('Temi', 300).encodeABI()
 }
 
@@ -72,7 +72,12 @@ signPromise.then(
 
         //  2. an error is generated
         sentTransaction.on(
-            "error", (err)=>console.log('insufficient gas fee')
+            "error", (err)=>console.log(err)
+        )
+
+        // when a transaction is generated
+        sentTransaction.on(
+            "transactionHash", (hash)=>console.log(hash)
         )
     }
 ).catch(err => console.log('there was an error'))
