@@ -18,7 +18,7 @@ contract('Tenant', (account)=>{
 
     describe("deployment", ()=>{
         it("deployed successfully", async ()=>{
-            const address = tenantDeployed.address
+            const address = tenant.address
             address.should.not.be.equal('', 'The contract has as address')
         })
     })
