@@ -6,7 +6,7 @@ require("chai")
 
 contract('Tenant', (account)=>{
 
-    const tenantDeployed = Tenant.new()
+    const tenantDeployed = await Tenant.new()
 
     const address = tenantDeployed.address
 
