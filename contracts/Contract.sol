@@ -15,7 +15,7 @@ contract Tenant {
 
     function newTenant(string memory name, uint256 price) public {
         counter = counter + 1;
-        _Tenant _tenant = _Tenant(name, price);
+        tenants[counter] = _Tenant(name, price);
     }
 
 }
