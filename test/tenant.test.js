@@ -1,4 +1,4 @@
-const Tenant = artifacts.require('./Contract');
+const Tenant = artifacts.require('./Tenant');
 
 require("chai")
     .use(require("chai-as-promised"))
@@ -7,4 +7,12 @@ require("chai")
 contract('Tenant', (account)=>{
 
     const tenantDeployed = Tenant.new()
+
+    const address = tenantDeployed.address
+
+    describe("deployment", ()=>{
+        it("deployed successfully", async ()=>{
+            address.should.not.be.equal('', 'The contract has as address')
+        })
+    })
 })

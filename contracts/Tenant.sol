@@ -11,7 +11,7 @@ contract Tenant {
 
     uint256 counter;
 
-    map(uint256 => _Tenant) public tenants;
+    mapping (uint256 => _Tenant) public tenants;
 
     function newTenant(string memory name, uint256 price) public {
         counter = counter + 1;
