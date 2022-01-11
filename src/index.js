@@ -1,9 +1,11 @@
 import Web3 from 'web3';
-//import '../build/contracts/Tenant.json'
+import { createRequire } from 'module';
 
-const web = new Web3(Web3.givenProvider || 'http://localhost:8545')
+const require = createRequire(import.meta.url)
 
 
-const networkId = await web.eth.net.getId()
+const contractAbi = require("../build/contracts/Tenant.json")
 
-console.log(networkId)
+const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545')
+
+console.log(contractAbi)
