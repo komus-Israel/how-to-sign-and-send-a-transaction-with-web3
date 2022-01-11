@@ -4,7 +4,7 @@ require("chai")
     .use(require("chai-as-promised"))
     .should()
 
-contract('Tenant', (account)=>{
+contract('Tenant', ([account])=>{
 
     let tenant
 
