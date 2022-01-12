@@ -17,6 +17,8 @@ const contractAddress = contractAbi.networks[networkId].address
 
 const contract =  new web3.eth.Contract(contractAbi.abi, contractAddress)
 
+
+//  get the array of all events from the first block to the latest
 const tenantEvent = await contract.getPastEvents('TenantRegistered', { fromBlock:0, toBlock:'latest' })
 
 console.log(tenantEvent)
