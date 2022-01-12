@@ -9,6 +9,10 @@ contract Tenant {
         uint256 price;
     }
 
+    // event 
+
+    event TenantRegistered(string _name, string _price);
+
     uint256 counter;
 
     mapping (uint256 => _Tenant) public tenants;
@@ -16,6 +20,7 @@ contract Tenant {
     function newTenant(string memory name, uint256 price) public {
         counter = counter + 1;
         tenants[counter] = _Tenant(name, price);
+        
     }
 
 }
