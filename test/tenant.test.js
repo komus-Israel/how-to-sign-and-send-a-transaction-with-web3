@@ -36,7 +36,7 @@ contract('Tenant', ([account])=>{
         
         it("emits an event after registering a new tenant", async()=>{
            registerTenant.logs[0].event.should.be.equal('TenantRegistered', 'it emitted the event rightly')
-           //console.log(registerTenant)
+
         })
 
         it("emits the right data", async()=>{
