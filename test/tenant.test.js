@@ -41,7 +41,8 @@ contract('Tenant', ([account])=>{
 
         it("emits the right data", async()=>{
             registerTenant.logs[0].args._name.should.be.equal(tenantName, "it emits the registered name")
-            registerTenant.logs[0].args._price.toString().should.be.equal(price, "it emits the registered price")
+            registerTenant.logs[0].args._price.toString().should.be.equal(price.toString(), "it emits the registered price")
+            
         })
     })
     })
