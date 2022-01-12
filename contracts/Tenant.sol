@@ -11,7 +11,7 @@ contract Tenant {
 
     // event 
 
-    event TenantRegistered(string _name, string _price);
+    event TenantRegistered(string _name, uint256 _price);
 
     uint256 counter;
 
