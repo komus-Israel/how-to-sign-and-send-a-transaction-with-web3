@@ -20,7 +20,7 @@ contract Tenant {
     function newTenant(string memory name, uint256 price) public {
         counter = counter + 1;
         tenants[counter] = _Tenant(name, price);
-        
+        emit TenantRegistered(name, price);
     }
 
 }
