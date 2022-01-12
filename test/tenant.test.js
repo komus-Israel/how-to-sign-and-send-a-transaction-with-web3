@@ -1,3 +1,5 @@
+const { equal } = require("assert");
+
 const Tenant = artifacts.require('./Tenant');
 
 require("chai")
@@ -23,9 +25,15 @@ contract('Tenant', ([account])=>{
         })
 
     describe("registering new tenant", ()=>{
+
+        let registerTenant
+
+        beforeEach( async()=>{
+            registerTenant = await tenant.newTenant("Tim", 200, { from:account })
+        })
         
-        it("registers a new tenant", async()=>{
-            const registerTenant = await tenant.newTenant("Tim", 200, { from:account })
+        it("emits an event after registering a new tenant", async()=>{
+            registerTenant.logs.event.should.be.equal('TenantRegistered')
         })
     })
     })
