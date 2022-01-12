@@ -27,14 +27,21 @@ contract('Tenant', ([account])=>{
     describe("registering new tenant", ()=>{
 
         let registerTenant
+        let tenantName = "Tim"
+        let price = 200
 
         beforeEach( async()=>{
-            registerTenant = await tenant.newTenant("Tim", 200, { from:account })
+            registerTenant = await tenant.newTenant(tenantName, price, { from:account })
         })
         
         it("emits an event after registering a new tenant", async()=>{
            registerTenant.logs[0].event.should.be.equal('TenantRegistered', 'it emitted the event rightly')
            //console.log(registerTenant)
+        })
+
+        it("emits the right data", async()=>{
+            registerTenant.logs[0].args._name.should.be.equal(tenantName, "it emits the registered name")
+            registerTenant.logs[0].args._price.toString().should.be.equal(price, "it emits the registered price")
         })
     })
     })
