@@ -1,4 +1,4 @@
-## How to Sign and Authorize a transaction with just web3
+## How to Sign and Send a transaction with just web3 js
 
 Building a client Application to interact with a smart contract would
 require the need for MetaMask to sign and authorize transactions. However, there are limitations to this approach and posibilities of solutions that can be built with this approach.
